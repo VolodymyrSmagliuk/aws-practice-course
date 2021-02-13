@@ -176,3 +176,40 @@ create an Amazon EC2 instance or an Amazon SQS queue in one region, the instance
 totally independent of instances or queues in another region. You can't use the resources of one
 region in another one.
 
+## AWS Availability Zones
+
+A region is made out of zones.
+
+We have seen that AWS has regions and that each region is completely independent.
+
+This is not the case for zones. A zone is isolated but still have a through low-latency link with
+other zones in the same region. To build an efficient infrastructure for your customers in a given
+region, having your application running in multiple AZs (availability zones) is a good practice. Your
+infrastructure has backups of computing, storage, and other types of resources in other AZs.
+
+When a problem occurs in an AZ, other AZs will support the continuity of your production.
+
+For example, "us-east-1" region has 3 AZs:
+
+```
+us-east-1a
+us-east-1b
+us-east-1c
+```
+## AWS Edges
+
+Some services like AWS CloudFront use edge locations instead of zones and regions.
+
+CloudFront is the CDN of Amazon Web Services with advanced features like authentication and
+programmatic access.
+
+Amazon CloudFront has a global edge network of more than 200 points of presence in more than
+80 cities. Some of these edges are considered as "edge locations", and others are considered as
+"regional edge caches".
+
+Cache edges are a way to accelerate delivering content using CloudFront and reduce the
+workload on origins to help you increase the availability of your applications.
+
+![6-aws_edge_network.png](./data/6-aws_edge_network.png)
+
+_source: aws.amazon.com_
