@@ -5,8 +5,10 @@
     - Overview of AWS Basics.
     - Getting free tier for 12 months.
 2. **Create your First EC2 Virtual Machine:**
-    - AMI, Instance Types, Network, Storage, Security Groups
+    - EC2, AMI, Instance Types, Network, Storage, Security Groups
     - Troubleshooting
+3. **Back to Basic**
+    - More about services we used to deployed
 3. **Installing And Conﬁguring AWS CLI:**
     - Overview of AWS CLI
     - Configs
