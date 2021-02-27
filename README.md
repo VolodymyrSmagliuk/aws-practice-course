@@ -17,6 +17,10 @@
     - Internet Gateway
     - NAT Gateway
     - VPC
+6. **Overview of Elastic Load Balancer**
+    - Aplication
+    - Network
+    - Classic
 6. **Deploying A Website/Service To An EC2 Instance**
     - Basic Linux commands/configs
     - Own Website
