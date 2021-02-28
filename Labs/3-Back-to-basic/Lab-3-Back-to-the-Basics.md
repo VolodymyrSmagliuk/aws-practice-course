@@ -33,7 +33,21 @@ If you want to use a free Nginx AMI, make sure that there are no additional fees
 screenshot above, using the first AMI will cost you AWS fees + the software fee ($0.03 USD per
 hour).
 
+### Choosing EC2 OS
 
+AWS provides you different possibilities when choosing the operating system you can use in an
+EC2 instance. In this guide, I usually make the choice of using Ubuntu. According to
+[The Cloud Market](http://thecloudmarket.com/stats#/by_platform_definition), 
+Ubuntu is the most used OS in AWS EC2 instances. In 2015, 70% of public cloud
+workloads and 54% of OpenStack clouds according to The Cloud Market and [Zdnet.com](https://www.zdnet.com/).
+
+![3-1a](./data/3-1a.png)
+
+You can use your preferred OS or your preferred GNU/Linux distribution, but you have to adapt
+some steps to your choice. So, for example, instead of using `sudo apt-get install nginx` to
+install Nginx in Ubuntu, you should use `sudo yum install nginx` if you are using CentOS. You
+can find instructions to install Nginx on Windows in the [official documentation](https://nginx.org/en/docs/windows.html).
+If you don't have any problems using Ubuntu, just keep it since it will be easier for you to follow.
 
 ## Instance Types
 
