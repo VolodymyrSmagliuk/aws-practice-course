@@ -368,3 +368,39 @@ have a static IP address, I will allow SSH traffic only from my IP:
 The screenshot above shows how to do this. I called my security group "my_security_group", I
 gave it a description (optional), and all that I should do to find it later for future use is clicking on
 "Review and Launch".
+
+## AWS EC2 Key Pairs
+
+EC2 uses public-key cryptography to encrypt and decrypt login information. In the previous section `Lab-2-First-EC2-server`, we
+create a key pair that we named `"aws-tutorial.pem"` and it's ready to be used with the created
+machine. At this step, AWS keeps the public key, and you should download the private key. As
+mentioned previously, you should keep this key in a safe place, since we are going to use it to SSH
+into our EC2 machine.
+
+Without it, you will not be able to SSH into the machine, and if it's lost, then you should follow
+some instructions that could take some time.
+
+The private key you will create will be downloaded to your computer and stored under the name
+`aws-tutorial.pem`.
+
+PEM is the acronym of "Privacy Enhanced Mail", and it's a Base64 encoded DER certificate. DER is
+a way to encode data and create a certificate.
+
+The structure of a certificate is described using a standard called ASN.1 (Abstract Syntax Notation
+One). ASN.1 is a data representation language used in telecommunication, computer networks,
+and cryptography (our case).
+
+For the sake of simplicity, I stored the PEM key under $HOME directory. In my case, when I would
+like to SSH into the created machine, I use a similar command to this one:
+
+```
+ssh -i aws-tutorial.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
+```
+
+If you have a custom folder where you store your PEM files, like $HOME/my_keys/, then you
+should adapt the previous command to your case:
+
+```
+ssh -i $HOME/my_keys/aws-tutorial.pem ec2-user@ec2-198-51-100-1.compute-
+1.amazonaws.com
+```
