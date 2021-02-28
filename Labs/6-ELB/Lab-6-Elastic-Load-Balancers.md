@@ -1,4 +1,4 @@
-# Lesson 11 - AWS Load Balancers
+# Lab 6 - AWS Load Balancers
 
 There are 3 types of load balancers. It may be confusing if this is the first time you use ELB
 (Elastic Load Balancer), and this is why we are going to study the differences between these 3
