@@ -33,6 +33,8 @@ If you want to use a free Nginx AMI, make sure that there are no additional fees
 screenshot above, using the first AMI will cost you AWS fees + the software fee ($0.03 USD per
 hour).
 
+
+
 ## Instance Types
 
 AWS offers 5 types of EC2 instances:
@@ -164,7 +166,6 @@ Note that the prices fluctuate depending on supply and demand, and can vary by r
 availability zone.
 
 ### Spot Fleet
-
 
 A spot fleet is a collection of spot instances. To create one, use: https://console.aws.amazon.com/ec2sp/
 
@@ -378,7 +379,7 @@ mentioned previously, you should keep this key in a safe place, since we are goi
 into our EC2 machine.
 
 Without it, you will not be able to SSH into the machine, and if it's lost, then you should follow
-some instructions that could take some time.
+[some instructions](https://forums.aws.amazon.com/thread.jspa?threadID=102074) that could take some time.
 
 The private key you will create will be downloaded to your computer and stored under the name
 `aws-tutorial.pem`.
