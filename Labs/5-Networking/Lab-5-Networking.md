@@ -361,3 +361,89 @@ PING 10.0.1.39 (10.0.1.39) 56(84) bytes of data.
 64 bytes from 10.0.1.39: icmp_seq=12 ttl=63 time=10.4 ms
 64 bytes from 10.0.1.39: icmp_seq=13 ttl=63 time=8.75 ms
 ```
+
+## Get more about DNS and Route53 Record Types **(optional)**
+
+### Route53 introduction
+
+Amazon Route 53 is a highly available and scalable cloud [Domain Name System (DNS)](https://aws.amazon.com/route53/what-is-dns/) web service. It is designed to give developers and businesses an extremely reliable and cost effective way to route end users to Internet applications by translating names like www.example.com into the numeric IP addresses like 192.0.2.1 that computers use to connect to each other. Amazon Route 53 is fully compliant with IPv6 as well.
+
+Amazon Route 53 effectively connects user requests to infrastructure running in AWS – such as Amazon EC2 instances, Elastic Load Balancing load balancers, or Amazon S3 buckets – and can also be used to route users to infrastructure outside of AWS. You can use Amazon Route 53 to configure DNS health checks to route traffic to healthy endpoints or to independently monitor the health of your application and its endpoints. Amazon Route 53 Traffic Flow makes it easy for you to manage traffic globally through a variety of routing types, including Latency Based Routing, Geo DNS, Geoproximity, and Weighted Round Robin—all of which can be combined with DNS Failover in order to enable a variety of low-latency, fault-tolerant architectures. Using Amazon Route 53 Traffic Flow’s simple visual editor, you can easily manage how your end-users are routed to your application’s endpoints—whether in a single AWS region or distributed around the globe. Amazon Route 53 also offers Domain Name Registration – you can purchase and manage domain names such as example.com and Amazon Route 53 will automatically configure DNS settings for your domains.
+
+[Video presentation](https://www.youtube.com/watch?v=RGWgfhZByAI&ab_channel=AmazonWebServices)
+
+_source: https://aws.amazon.com/route53/_
+
+### Route53 Record Types
+
+Route53 supports different record types:
+
+- **A Record Type** The value for an A record is an IPv4 address
+- **AAAA Record Type** The value for a AAAA record is an IPv6 address
+- **CAA Record Type** CAA is the acronym of Certification Authority Authorization. This record is
+used to specify which certificate authorities are allowed to issue certificates for a domain.
+- **CNAME Record Type CNAME** is the acronym of the Canonical Name record. It is a type of
+resource record in the DNS (Domain Name System), and it is used to specify that a domain
+name is an alias for another domain
+- **MX Record Type** According to Wikipedia,
+
+> A mail exchanger record (MX record) is a type of resource record in the Domain Name System
+that specifies a mail server responsible for accepting email messages on behalf of a recipient’s
+domain and a preference value used to prioritize mail delivery if multiple mail servers are
+available. For example, to use Google G Suite, you should configure your MX records with the
+following configuration:
+```
+ASPMX.L.GOOGLE.COM 1
+ALT1.ASPMX.L.GOOGLE.COM 5
+ALT2.ASPMX.L.GOOGLE.COM 5
+ALT3.ASPMX.L.GOOGLE.COM 10
+ALT4.ASPMX.L.GOOGLE.COM 10
+```
+> 1, 5, and 10 are the different priorities to give to each of the MX servers.
+
+- **NAPTR Record Type** APTR ( Name Authority Pointer) records are often used for applications
+in Internet telephony, NAPTR records are most commonly used with SIP protocol in
+conjunction with SRV records.
+- **NS Record Type** The NS (Name Server) identifies the name servers for the hosted zone. NS
+indicates which DNS server is authoritative for a given domain.
+- **PTR Record Type** PTR (Pointer records ) associates an IP with a domain name. For instance,
+it could be used to to make 192.168.0.1 resolve to http://www.my-domain.com.
+- **SOA Record Type** A start of authority (SOA) record provides information about a domain
+and the corresponding Amazon Route 53 hosted zone. Every domain must have a Start of
+Authority record.
+
+SOA includes different information that you can find here.
+
+
+- **SPF Record Type SPF** (Sender Policy Framework) is a simple email-validation system
+designed to detect email spoofing. This is deprecated.
+
+RFC 7208, Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1, has
+been updated to say, “...[I]ts existence and mechanism defined in [RFC4408] have led to some
+interoperability issues. Accordingly, its use is no longer appropriate for SPF version 1;
+implementations are not to use it.”
+
+Now it is recommended to create a TXT record that contains the applicable value instead of using
+this type.
+
+Example:
+
+```
+"v=spf1 include:amazonses.com ~all"
+```
+
+Read [how to use TXT records with DKIM, SPF, and DMARC](https://startupsventurecapital.com/why-your-marketing-email-will-land-in-my-spam-folder-the-non-marketing-guide-dkim-spf-dmarc-43f91f9c6940).
+
+- **SRV Record Type** SRV (Service Record) defines the location, like the hostname and port
+number, of servers for specified services. The first three values are decimal numbers
+representing priority, weight, and port.
+
+e.g :
+
+```
+1 2 80 my-hostname.m-domaine.com
+```
+
+- **TXT Record Type** TXT (Text Record) is a type of record used to let system administrators
+associate arbitrary text with a host. It is most commonly used with services and protocols
+like SPF, DKIM, DMARC, and DNS-SD ..etc.
