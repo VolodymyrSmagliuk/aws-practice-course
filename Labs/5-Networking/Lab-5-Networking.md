@@ -264,7 +264,7 @@ Now, go to "Network Interfaces" and associate the EIP to the network interface o
 Now, you will be able to SSH into the OpenVPN machine using:
 
 ```
-ssh -i "aws-tutorial.pem" openvpnas@15.188.64.165:943/admin
+ssh -i "aws-tutorial.pem" openvpnas@15.188.64.165
 ```
 
 If you did choose to assign a public IP, use the auto assigned IP.
@@ -288,12 +288,37 @@ If you want to reconfigure OpenVPN, use:
 sudo /usr/local/openvpn_as/bin/ovpn-init
 ```
 
+Then, you will need to change/set password for openvpc user. Type this code to do it.
+
+```
+sudo passwd openvpn
+
+---
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+```
+
 To download an OpenVPN client, visit the client page using the same address but without
 "/admin".
 
-![31](./data/4-31.png)
+```
+https://15.188.64.165:943
+```
 
-Click on your OS, and you will be able to read the official documentation. Download your
+Probably, you will see authentification menu. You need to put login as `vpnadmin` (or another you've set in configuration step before) and a password we've set for openvpc user. 
+
+If it didn't work, try to enter the same password and login `vpnadmin`. If it didn't work to, reconfigure openvpn and leave default user. To remove all previous configuration file use `--force` or `-forse` paramether
+
+```
+sudo /usr/local/openvpn_as/bin/ovpn-init -forse
+```
+
+Click on your OS, and you will be able to read the official documentation. 
+
+![31](./data/4-30.png)
+
+Download your
 OpenVPN client, then go back to the same page and to download the "client.ovpn" file, click on
 your profile:
 
@@ -304,7 +329,7 @@ The file we downloaded helps in connecting your laptop to the VPN.
 In Ubuntu, for example, install the package "openvpn" then:
 
 ```
-openvpn --config client.ovpn
+openvpn3 session-stats --config client.ovpn
 ```
 
 Now, to test if I can access EC2 private machine from my laptop, I created a machine on the
