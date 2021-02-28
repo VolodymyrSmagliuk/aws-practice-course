@@ -1,6 +1,4 @@
-# Lab 4 - Installing And Configuring
-
-# AWS CLI
+# Lab 4 - Installing And Configuring AWS CLI
 
 ## Install the CLI
 

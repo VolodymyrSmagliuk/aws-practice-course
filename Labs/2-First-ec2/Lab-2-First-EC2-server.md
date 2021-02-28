@@ -1,6 +1,4 @@
-# Lab 2 - Create your First EC2 Virtual
-
-# Machine
+# Lab 2 - Create your First EC2 Virtual Machine
 
 ## What is a Virtual Machine?
 

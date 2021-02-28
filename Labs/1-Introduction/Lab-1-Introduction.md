@@ -15,9 +15,7 @@ theoretical details, the [official AWS documentation](https://docs.aws.amazon.co
 This course is a practical way to get quick owerview of Amazon Web Serives (AWS) and apply your knowledge
 to create your own systems using with cloud provider.
 
-# Lab 1 - Introduction to Cloud
-
-# Computing
+# Lab 1 - Introduction to Cloud Computing
 
 ## The Cloud is Just Another Name for the Internet
 
